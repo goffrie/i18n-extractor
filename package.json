@@ -1,0 +1,35 @@
+{
+  "name": "i18n-extractor",
+  "version": "0.1.0",
+  "description": "Extracts calls of the form `i18n(\"literal string\")` from Javascript code.",
+  "main": "lib/extract.js",
+  "bin": {
+    "i18n-extract": "bin/i18n-extract"
+  },
+  "author": {
+    "name": "Geoffry Song",
+    "email": "goffrie@gmail.com"
+  },
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "license": "BSD",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/goffrie/i18n-extractor.git"
+  },
+  "scripts": {
+    "prepublish": "make"
+  },
+  "bugs": {
+    "url": "https://github.com/goffrie/i18n-extractor/issues"
+  },
+  "dependencies": {
+    "uglify-js": "~2.3.6",
+    "commander": "~2.0.0"
+  },
+  "devDependencies": {
+    "LiveScript": "~1.1.1"
+  }
+}
