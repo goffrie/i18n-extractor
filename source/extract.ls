@@ -19,7 +19,8 @@ extract = (js, options) ->
     results = options.init ? {}
     ast.walk new uglify-js.TreeWalker (node) ->
         if node instanceof uglify-js.AST_Call &&
-                node.expression.name?.match options.fun
+                typeof node.expression.name == 'string' &&
+                node.expression.name.match options.fun
             key = node.expression.name.replace options.fun, options.key
             if node.args.length != 1
                 options.warnings?.push {
