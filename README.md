@@ -4,6 +4,9 @@ This is a module/command line application to parse Javascript and search for
 nodes of the form `i18n('literal string')`, printing out all such strings it
 finds. (The function name can be customized.)
 
+It allows multiple arguments to the magic function, but it only cares about
+the first one. Zero arguments is too few.
+
 ## Install
 
 `npm install i18n-extractor`

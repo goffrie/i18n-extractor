@@ -69,3 +69,11 @@ _it 'should work on constant expressions' ->
         """
         { fun: 'i18n' }
     , ['i am a string']
+
+_it 'should allow multiple arguments' ->
+    assert.deepEqual extractArray do
+        """
+        i18n('hello %s', notConstant)
+        """
+        { fun: 'i18n' }
+    , ['hello %s']

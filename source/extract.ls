@@ -26,10 +26,10 @@ extract = (js, options) ->
                 node.expression.name.match options.fun
             node = node.transform compressor
             key = node.expression.name.replace options.fun, options.key
-            if node.args.length != 1
+            if node.args.length < 1
                 options.warnings?.push {
                     node
-                    msg: "Magic function called without exactly 1 argument"
+                    msg: "Magic function called without enough arguments"
                 }
             else if !(node.args[0] instanceof uglify-js.AST_String)
                 options.warnings?.push {
