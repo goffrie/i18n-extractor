@@ -62,3 +62,10 @@ _it 'should produce warnings' ->
     assert.equal warnings.length, 4
     assert.deepEqual keys(r[""]), ['ok']
 
+_it 'should work on constant expressions' ->
+    assert.deepEqual extractArray do
+        """
+        i18n('i' + ' am' + ' a' + ' string')
+        """
+        { fun: 'i18n' }
+    , ['i am a string']

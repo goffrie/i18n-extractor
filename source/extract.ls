@@ -1,6 +1,7 @@
 require! \uglify-js
 
-# Takes a string of Javascript and parses function calls on literal strings.
+# Takes a string of Javascript and parses function calls on literal strings,
+# or constant expressions that evaluate to strings.
 #
 # `options` has the following keys:
 #
@@ -16,11 +17,14 @@ require! \uglify-js
 extract = (js, options) ->
     options.key ?= ''
     ast = uglify-js.parse js
+    ast.figure_out_scope!
     results = options.init ? {}
+    compressor = uglify-js.Compressor { evaluate: true }, true
     ast.walk new uglify-js.TreeWalker (node) ->
         if node instanceof uglify-js.AST_Call &&
                 typeof node.expression.name == 'string' &&
                 node.expression.name.match options.fun
+            node = node.transform compressor
             key = node.expression.name.replace options.fun, options.key
             if node.args.length != 1
                 options.warnings?.push {
