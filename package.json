@@ -20,7 +20,8 @@
     "url": "git://github.com/goffrie/i18n-extractor.git"
   },
   "scripts": {
-    "prepublish": "make"
+    "prepublish": "make",
+    "test": "node_modules/.bin/mocha --compilers ls:LiveScript"
   },
   "bugs": {
     "url": "https://github.com/goffrie/i18n-extractor/issues"
@@ -30,6 +31,8 @@
     "commander": "~2.0.0"
   },
   "devDependencies": {
-    "LiveScript": "~1.1.1"
+    "LiveScript": "~1.1.1",
+    "mocha": "~1.12.0",
+    "prelude-ls": "~1.0.3"
   }
 }
