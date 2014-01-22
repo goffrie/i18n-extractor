@@ -28,6 +28,15 @@ for file in commander.args
 
 final = {}
 for key, obj of options.init
-    final[key] = [str for str of obj]
+    newAry = []
+    for sub of obj
+        newObj = {}
+        newObj["tags"] = []
+        counter = 0
+        s = JSON.parse sub
+        newObj["string"] = s[0]
+        newObj["tags"] = s.slice 1
+        newAry.push newObj
+    final[key] = newAry
 
 process.stdout.write JSON.stringify final

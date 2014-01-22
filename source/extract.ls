@@ -11,7 +11,7 @@ require! \uglify-js
 # - `init`: if present, the results will be merged onto this object.
 # - `warnings`: if present, function calls that match `fun`, but don't have the
 #     right format (exactly one literal string) will be recorded in this array.
-# 
+#
 # Returns an object where the keys are per `key` and the values are objects
 # where the keys are the used strings.
 extract = (js, options) ->
@@ -38,7 +38,8 @@ extract = (js, options) ->
                 }
             else
                 results[key] ?= {}
-                results[key][node.args[0].value] = 1
+                ary = [arg.value for arg in node.args]
+                return results[key][JSON.stringify(ary)] = 1;
     results
 
 module.exports = extract
