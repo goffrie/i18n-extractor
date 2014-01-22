@@ -20,7 +20,7 @@ extract = (js, options) ->
     ast.figure_out_scope!
     results = options.init ? {}
     compressor = uglify-js.Compressor { evaluate: true }, true
-    ast.walk new uglify-js.TreeWalker (node) ->
+    ast.walk new uglify-js.TreeWalker (node) !->
         if node instanceof uglify-js.AST_Call &&
                 typeof node.expression.name == 'string' &&
                 node.expression.name.match options.fun
@@ -39,7 +39,7 @@ extract = (js, options) ->
             else
                 results[key] ?= {}
                 ary = [arg.value for arg in node.args]
-                return results[key][JSON.stringify(ary)] = 1;
+                results[key][JSON.stringify(ary)] = 1
     results
 
 module.exports = extract
