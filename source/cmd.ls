@@ -9,6 +9,7 @@ commander
     .usage '[options] <file ...>'
     .option '-f, --function <regex>', 'Function pattern'
     .option '-k, --key <string>', 'Key'
+    .option '-t, --tags', 'Extract additional parameters as tags.'
     .parse process.argv
 
 options = {
@@ -31,6 +32,9 @@ for key, obj of options.init
     final[key] = for args of obj
         r = {}
         [ r.string, ...r.tags ] = JSON.parse args
-        r
+        if commander.tags
+            r
+        else
+            r.string
 
 process.stdout.write JSON.stringify final
