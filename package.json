@@ -1,6 +1,6 @@
 {
   "name": "i18n-extractor",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Extracts calls of the form `i18n(\"literal string\")` from Javascript code.",
   "main": "lib/extract.js",
   "bin": {
