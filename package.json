@@ -31,7 +31,7 @@
     "commander": "~2.0.0"
   },
   "devDependencies": {
-    "LiveScript": "~1.1.1",
+    "LiveScript": "~1.2.0",
     "mocha": "~1.12.0",
     "prelude-ls": "~1.0.3"
   }
