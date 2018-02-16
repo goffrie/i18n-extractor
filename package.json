@@ -1,6 +1,6 @@
 {
   "name": "i18n-extractor",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "Extracts calls of the form `i18n(\"literal string\")` from Javascript code.",
   "main": "lib/extract.js",
   "bin": {
@@ -14,25 +14,23 @@
     "bin",
     "lib"
   ],
-  "license": "BSD",
+  "license": "BSD-2-Clause",
   "repository": {
     "type": "git",
     "url": "git://github.com/goffrie/i18n-extractor.git"
   },
   "scripts": {
-    "prepublish": "make",
-    "test": "node_modules/.bin/mocha --compilers ls:LiveScript"
+    "prepublish": "npm test",
+    "test": "mocha \"test/*.js\""
   },
   "bugs": {
     "url": "https://github.com/goffrie/i18n-extractor/issues"
   },
   "dependencies": {
-    "uglify-js": "~2.3.6",
-    "commander": "~2.0.0"
+    "commander": "^2.11.0",
+    "uglify-js": "^2.8.29"
   },
   "devDependencies": {
-    "LiveScript": "~1.2.0",
-    "mocha": "~1.12.0",
-    "prelude-ls": "~1.0.3"
+    "mocha": "^5.0.1"
   }
 }
